@@ -7,7 +7,10 @@ const conncet = require("./config/db")
 const app = express()
 conncet()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+     origin : "https://jungle-green-crab-fez.cyclic.app",
+     credentials : true 
+}))
 app.use(express.static("uploads"));
 app.use("/blog", require("./routes/blogRoutes"))
 app.use("/user", require("./routes/userRoutes"))
